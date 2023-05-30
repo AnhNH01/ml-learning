@@ -61,27 +61,27 @@ if __name__ == "__main__":
                     f" Test {index+1} --> FAILED: {expected[rsl]} rules expected, got {test_result[rsl][0]} at {supports[rsl[0]]} minimum support and {confidence[rsl[1]]} min cofidence, Time: {test_result[rsl][1]} seconds"
                 )
 
-    # print("____________Test result on Grocery Data______________")
-    # run_test(SUPPORTS, CONFIDENCES, EXPECTED_RESULT)
-    # print("______________________________________________________________")
+    print("____________Test result on Grocery Data______________")
+    run_test(SUPPORTS, CONFIDENCES, EXPECTED_RESULT)
+    print("______________________________________________________________")
 
-    adult_cleaned_data = "/home/haianh/grad_project/ml-learning/data/adult_new.data"
-    transactions,items = read(adult_cleaned_data)
+    # adult_cleaned_data = "/home/haianh/grad_project/ml-learning/data/adult_new.data"
+    # transactions,items = read(adult_cleaned_data)
     
-    adult_cleaned_data = "/home/haianh/grad_project/ml-learning/data/adult_new.data"
-    transactions,items = read(adult_cleaned_data)
+    # adult_cleaned_data = "/home/haianh/grad_project/ml-learning/data/adult_new.data"
+    # transactions,items = read(adult_cleaned_data)
     
-    # rules = apriori(transactions, min_support=0.03,min_confidence=0.7, max_length=8)
-    # print(len(rules))
-    test_result = dict()
-    supports = [0.05, 0.03, 0.01]
-    confidences = [0.5, 0.7, 0.9]
-    for (i,sup) in enumerate(supports):
-        for (j,conf) in enumerate(confidences):
-            s = perf_counter()
-            rules = apriori(transactions, min_support=sup, min_confidence=conf, max_length=8)
-            e = perf_counter()
-            test_result[(supports[i], confidences[j])] = (len(rules),e - s)
+    # # rules = apriori(transactions, min_support=0.03,min_confidence=0.7, max_length=8)
+    # # print(len(rules))
+    # test_result = dict()
+    # supports = [0.05, 0.03, 0.01]
+    # confidences = [0.5, 0.7, 0.9]
+    # for (i,sup) in enumerate(supports):
+    #     for (j,conf) in enumerate(confidences):
+    #         s = perf_counter()
+    #         rules = apriori(transactions, min_support=sup, min_confidence=conf, max_length=8)
+    #         e = perf_counter()
+    #         test_result[(supports[i], confidences[j])] = (len(rules),e - s)
 
-    for key in test_result:
-        print(f'{key}: {test_result[key][0]} after {test_result[key][1]}')
+    # for key in test_result:
+    #     print(f'{key}: {test_result[key][0]} after {test_result[key][1]}')

@@ -1,6 +1,6 @@
 from itertools import combinations
 from itemset import apriori_gen
-
+from copy import deepcopy
 
 class Rule:
     def __init__(
@@ -204,7 +204,7 @@ def ap_genrules(
 
     # generate H_m+1 from H_m
     H_m = list(apriori_gen(H_m))
-    H_m_cpy = H_m.copy()
+    H_m_cpy = deepcopy(H_m)
 
     for h_m in H_m:
         ante = tuple(sorted(set(itemset).difference(set(h_m))))
