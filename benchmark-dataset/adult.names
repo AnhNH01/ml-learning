@@ -1,0 +1,2 @@
+age,workclass,fnlwgt,education,education-num,marital-status,occupation,relationship,race,sex,capital-gain,capital-lost,hours-per-week,native-country,class
+numerical,categorical,numerical,categorical,numerical,categorical,categorical,categorical,categorical,categorical,numerical,numerical,numerical,categorical,label
