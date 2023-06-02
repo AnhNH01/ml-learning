@@ -2,6 +2,13 @@ from ruleitem import RuleItem
 from manager import DatasetManager
 from itertools import combinations
 
+def rule_cond_set(rule: RuleItem):
+    """
+    Returns the cond_set of the rule
+
+    To be passed in the sorted() function
+    """
+    return rule.cond_set
 
 class CAR:
     """
@@ -12,41 +19,30 @@ class CAR:
         self.rules: set[RuleItem] = set()
         self.pruned_rules: set[RuleItem] = set()
 
-    def _add(self, rule: RuleItem, min_support: float, min_confidence: float):
+    def _add(self, rule: RuleItem, min_confidence: float):
         """
-        Save the rule with the highest confidence if they have the same cond_set
+        Add rule with acceptable confidence 
         """
-       
-        if rule.support >= min_support and rule.confidence >= min_confidence:
-            if rule in self.rules:
-                return
-            for existing_rule in self.rules:
-                if existing_rule.cond_set == rule.cond_set and existing_rule.confidence < rule.confidence:
-                    self.rules.remove(existing_rule)
-                    self.rules.add(rule)
-                    return
-                elif existing_rule.cond_set == rule.cond_set and existing_rule.confidence >= rule.confidence:
-                    return
+        if rule.confidence >= min_confidence:
             self.rules.add(rule)
 
-    def append(self, car, min_support: float, min_confidence: float):
+    def append(self, car):
         """
         Append car
         """
-        for rule in car.rules:
-            self._add(rule, min_support, min_confidence)
+        
+        self.rules = self.rules.union(car.rules)
 
     def generate_car(
         self,
         frequent_ruleitem: set[RuleItem],
-        min_support: float,
         min_confidence: float,
     ):
         """
         Get rules that satisfied min support and min_confidence
         """
         for rule in frequent_ruleitem:
-            self._add(rule, min_support, min_confidence)
+            self._add(rule, min_confidence)
 
 
 def apriori_gen(k_ruleitem_set: set[RuleItem], manager: DatasetManager):
@@ -68,16 +64,15 @@ def apriori_gen(k_ruleitem_set: set[RuleItem], manager: DatasetManager):
     # Join step
     i = 0
     while i < len(rule_list):
-        *first, last = sorted(rule_list[i].cond_set)
+        *first, last = list(rule_list[i].cond_set)
         label = rule_list[i].class_label
         tail = [last]
-        for j in range(0, len(rule_list)):
-            if rule_list[j] == rule_list[i]:
-                continue
+        for j in range(i + 1, len(rule_list)):
+          
             if rule_list[j].class_label != label:
                 continue
             else:
-                *first_items, last_item = sorted(rule_list[j].cond_set)
+                *first_items, last_item = list(rule_list[j].cond_set)
 
                 if first == first_items:
                     tail.append(last_item)
@@ -86,23 +81,25 @@ def apriori_gen(k_ruleitem_set: set[RuleItem], manager: DatasetManager):
                 
 
         for combination in combinations(tail, 2):
-            extended = frozenset(sorted(first + list(combination)))
-            candidate_cond_set.add(extended)
+            extended = tuple(sorted(first + list(combination)))
+            candidate = RuleItem(extended, label, manager)
+            candidate_ruleitem.add(candidate)
+            # candidate_cond_set.add(extended)
             
 
-        for condset in candidate_cond_set:
-            candidate = RuleItem(set(condset), label, manager)
-            candidate_ruleitem.add(candidate)
+        # for condset in candidate_cond_set:
+        #     candidate = RuleItem(set(condset), label, manager)
+        #     candidate_ruleitem.add(candidate)
             
         i += 1 # increment while-loop
     
-    # Prune step
+    # #Prune step
     # pruned_candidates = set()
     
     # for rule in candidate_ruleitem:
-    #     for i in range(0, len(rule.cond_set)):
+    #     for i in range(0, len(rule.cond_set) - 2):
     #         condset = list(rule.cond_set)
-    #         cond_subset = set(condset[:i] + condset[i + 1 :])
+    #         cond_subset = tuple(condset[:i] + condset[i + 1 :])
     #         temp = RuleItem(cond_subset, rule.class_label, manager)
 
     #         if temp not in k_ruleitem_set:                
@@ -110,6 +107,7 @@ def apriori_gen(k_ruleitem_set: set[RuleItem], manager: DatasetManager):
     #             break
     #         else:
     #             pruned_candidates.add(rule)
+    # candidate_ruleitem = pruned_candidates
     return candidate_ruleitem
 
 
@@ -131,21 +129,20 @@ def rule_generator(
     one_ruleiem_set = set()
     for label in manager.class_labels:
         for item in manager.items:
-            cond_set = set()
-            cond_set.add(item)
+            cond_set = (item,)
             rule = RuleItem(cond_set, label, manager)
             if rule.support >= min_support:
                 one_ruleiem_set.add(rule)
-    frequent_ruleitem_set[cond_set_length] = one_ruleiem_set
-    cars.generate_car(one_ruleiem_set, min_support, min_confidence)
+    
+    # sort rule by its cond_set to prepare for the apriori_gen procedure
+    frequent_ruleitem_set[cond_set_length] = sorted(one_ruleiem_set, key=rule_cond_set)
+    cars.generate_car(one_ruleiem_set, min_confidence)
     
     # build up k+1-ruleiem set
     cond_set_length = 2
     while len(frequent_ruleitem_set[cond_set_length - 1]) > 0 and max_length > 1:
        
-        rule_list = list(frequent_ruleitem_set[cond_set_length - 1])
-
-        candidate_rules = apriori_gen(rule_list, manager)
+        candidate_rules = apriori_gen(frequent_ruleitem_set[cond_set_length - 1], manager)
         car = CAR()
         
         large_possible_rules = set()
@@ -154,10 +151,10 @@ def rule_generator(
                 large_possible_rules.add(rule)
         if len(large_possible_rules) == 0:
             break
-        frequent_ruleitem_set[cond_set_length] = large_possible_rules
-        car.generate_car(large_possible_rules, min_support, min_confidence)
+        frequent_ruleitem_set[cond_set_length] = sorted(large_possible_rules, key=rule_cond_set)
+        car.generate_car(large_possible_rules, min_confidence)
         
-        cars.append(car, min_support, min_confidence)
+        cars.append(car)
         cond_set_length += 1
 
         if cond_set_length >= max_length:
@@ -194,10 +191,10 @@ if __name__ == "__main__":
         print(f"Number of rules: {len(cars.rules)}")
        
 
-    # manager = DatasetManager(dataset)
-    # start = perf_counter()
-    # cars = rule_generator(manager, minsup, minconf, 2)
-    # end = perf_counter()
+    manager = DatasetManager(dataset)
+    start = perf_counter()
+    cars = rule_generator(manager, minsup, minconf, 2)
+    end = perf_counter()
    
     
     # print(f"Done in {end-start} secs")

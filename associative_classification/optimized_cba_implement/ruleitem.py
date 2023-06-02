@@ -5,7 +5,7 @@ from manager import DatasetManager
 class RuleItem:
     def __init__(
         self,
-        cond_set: set[tuple[Hashable, Hashable]],
+        cond_set: tuple[tuple[Hashable, Hashable]],
         class_label: Hashable,
         manager: DatasetManager,
     ):
@@ -33,17 +33,6 @@ class RuleItem:
 
     def __repr__(self) -> str:
         return f"{self.cond_set} --> (class: {self.class_label}) [support={self.support}, confidence={self.confidence}]"
-
-    def __gt__(self, other):
-        """
-        Define precedent of rule according to the paper
-        """
-        if self.confidence > other.confidence:
-            return True
-        elif self.confidence == other.confidence:
-            return self.support > other.support
-        elif self.confidence == other.confidence and self.support == other.support:
-            return len(self.cond_set) < len(other.cond_set)
 
     def __gt__(self, other):
         """
@@ -75,13 +64,12 @@ class RuleItem:
             return False
 
     def __hash__(self) -> int:
-        to_hash = set(self.cond_set)
-        to_hash.add(("class", self.class_label))
-        return hash(frozenset(to_hash))
+        to_hash = self.cond_set + ('class', self.class_label)
+        return hash(to_hash)
 
 
 if __name__ == "__main__":
-    cond_set = {(0, 1), (1, 1)}
+    cond_set = ((0, 1), (1, 1))
     class_label = 1
     dataset = [
         [1, 1, 1],
