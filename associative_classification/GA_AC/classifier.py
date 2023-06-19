@@ -1,5 +1,6 @@
 from ruleitem import RuleItem
 import sys
+from collections import Counter
 
 def satisfy(rule: RuleItem, datacase):
     """
@@ -106,7 +107,7 @@ class Classifier:
             return self.default_class
     
     def accuracy(self, dataset): 
-        if len(self.rules) == 0 or self.default_class is None:
+        if len(self.rules) == 0 and self.default_class is None:
             print("The classifier has to be built first")
             return
         else:
