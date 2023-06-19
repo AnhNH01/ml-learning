@@ -1,0 +1,18 @@
+
+Discretizing Bank dataset
+age: [26.0, 30.0, 61.0]
+job: {'retired': 1, 'admin.': 2, 'entrepreneur': 3, 'unknown': 4, 'technician': 5, 'blue-collar': 6, 'services': 7, 'student': 8, 'management': 9, 'self-employed': 10, 'housemaid': 11, 'unemployed': 12}
+marital: {'divorced': 1, 'married': 2, 'single': 3}
+education: {'unknown': 1, 'tertiary': 2, 'primary': 3, 'secondary': 4}
+default: {'yes': 1, 'no': 2}
+balance: [-46.0, 106.0, 1579.0]
+housing: {'yes': 1, 'no': 2}
+loan: {'yes': 1, 'no': 2}
+contact: {'unknown': 1, 'cellular': 2, 'telephone': 3}
+day: [2.0, 5.0, 10.0, 11.0, 17.0, 22.0, 26.0, 28.0, 30.0, 31.0]
+month: {'jan': 1, 'mar': 2, 'sep': 3, 'apr': 4, 'dec': 5, 'jun': 6, 'jul': 7, 'aug': 8, 'feb': 9, 'nov': 10, 'oct': 11, 'may': 12}
+duration: [78.0, 131.0, 207.0, 260.0, 411.0, 522.0, 648.0, 828.0]
+campaign: [2.0, 4.0, 12.0]
+pdays: [9.0, 87.0, 100.0, 108.0, 178.0, 185.0, 204.0, 317.0, 374.0]
+previous: [1.0]
+poutcome: {'unknown': 1, 'success': 2, 'other': 3, 'failure': 4}
