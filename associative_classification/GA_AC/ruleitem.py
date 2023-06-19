@@ -14,6 +14,7 @@ class RuleItem:
         manager: DatasetManager instance for counting support
         manager: manager instance
     """
+
     def __init__(
         self,
         cond_set: list[Hashable],
@@ -44,38 +45,48 @@ class RuleItem:
             return 0
 
     @property
+    def relative_support(self):
+        class_support = (
+            len(self.manager.indices_by_class_label[self.class_label])
+            / self.transaction_num
+        )
+        return self.support / class_support
+
+    @property
     def fitness(self):
         return self.fitness_function()
-    
+
     @property
     def cond_set_length(self):
         """Length of the condset = Number of not None value in condset"""
         return sum(val is not None for val in self.cond_set)
-
 
     def fitness_function(self):
         """
         Fitness function for rule, takes into account support of the rule and
         perspective to support of the class
 
-        F(rule) = confidence * support  / class_support
+        F(rule) = confidence * relative support
 
         Return:
             Fitness of a rule: float value in range [0, 1], the higher the better
         """
-        class_support = len(self.manager.indices_by_class_label[self.class_label]) / self.transaction_num
-        fitness = self.confidence * self.support / class_support
+
+        fitness = self.confidence * self.relative_support
+
         return fitness
 
     def __repr__(self) -> str:
-        filtered = [(attr, val) for (attr, val) in enumerate(self.cond_set) if val is not None]
+        filtered = [
+            (attr, val) for (attr, val) in enumerate(self.cond_set) if val is not None
+        ]
         return f"{tuple(filtered)} --> (class: {self.class_label}) [sup={self.support}, conf={self.confidence}, fit = {self.fitness}]"
 
     def __gt__(self, other):
         """
         Precedence operator. Determines if this rule
         has higher precedence. Rules are sorted according
-        to their confidence, support, length and id.
+        to their confidence, support,
         """
         if self.confidence > other.confidence:
             return True
@@ -84,7 +95,7 @@ class RuleItem:
         elif (
             self.confidence == other.confidence
             and self.support == other.support
-            and len(self.cond_set) < len(other.cond_set)
+            and self.cond_set_length < other.cond_set_length
         ):
             return True
 
@@ -95,7 +106,10 @@ class RuleItem:
         return not self > other
 
     def __eq__(self, other: object) -> bool:
-        if tuple(self.cond_set) == tuple(other.cond_set) and self.class_label == other.class_label:
+        if (
+            tuple(self.cond_set) == tuple(other.cond_set)
+            and self.class_label == other.class_label
+        ):
             return True
         else:
             return False
@@ -108,10 +122,11 @@ class RuleItem:
         """
         Define "real" length of the rule: The number of not None value in the cond_set and ante
         """
-        return  self.cond_set_length+ 1
+        return self.cond_set_length + 1
+
 
 if __name__ == "__main__":
-    cond_set = [1, 1] 
+    cond_set = [1, 1]
     class_label = 1
     dataset = [
         [1, 1, 1],
@@ -135,4 +150,14 @@ if __name__ == "__main__":
     print("rulesupCount =", rule_item.rule_support_count)  # should be 2
     print("support =", rule_item.support)  # should be 0.2
     print("confidence =", rule_item.confidence)  # should be 0.667
-    print('rule length =', len(rule_item)) # should be 3
+    print("rule length =", len(rule_item))  # should be 3
+    print(
+        manager.get_dataset_coverage(
+            {
+                RuleItem([1], 1, manager),
+                RuleItem([2], 1, manager),
+                RuleItem([2, 2], 1, manager),
+            },
+            1,
+        )
+    )
