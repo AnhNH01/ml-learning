@@ -1,11 +1,20 @@
 from classifier import Classifier, satisfy
 from copy import deepcopy
-
+from collections import Counter
 
 
 def m1_classifier_builder(car, dataset:list):
     classifier = Classifier()
-    car_list = sorted(car, reverse=True) # sort class association rules by its precedent
+    
+    # No class association rule is mined
+    if len(car) == 0:
+        class_distribution = Counter([datacase[-1] for datacase in dataset])
+        classifier.default_class = max(class_distribution, key=class_distribution.get)
+        return classifier
+
+    # sort class association rules by its precedent
+    car_list = sorted(car, reverse=True) 
+    # car_list = sorted(car, key=lambda r: r.fitness, reverse=True)
     rule_error_list = []
 
     for rule in car_list:
