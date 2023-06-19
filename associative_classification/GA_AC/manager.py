@@ -76,6 +76,16 @@ class DatasetManager:
 
         return cond_set_support_count, rule_support_count
 
+    def get_dataset_coverage(self, ruleset: set):
+        ruleset = sorted(ruleset, key=lambda r:r.fitness)
+        total_covered = set()
+
+        while ruleset:
+            rule = ruleset.pop()
+            cases_covered = self.indices_by_itemset(rule.cond_set)
+            total_covered = total_covered.union(cases_covered)
+        return len(total_covered) / self.dataset_length
+
 
 if __name__ == "__main__":
     dataset = [
