@@ -23,7 +23,9 @@ def validate(train_path, test_path, minsup, minconf):
     print("Number of rules in classifier: ", len(cba.clf.rules))
 
     print("Default class:", cba.clf.default_class)
-    print(cba.clf.rules[-1])
+    # print(cba.clf.rules[0])
+    # for rule in cba.clf.rules:
+    #     print(rule)
     print(f"Run time is {e - s} seconds")
     print(f"Accuracy: {accuracy * 100}")
     print("--------------------------------------------------------------")
@@ -35,4 +37,28 @@ nursery_test_path = "/home/haianh/grad_project/ml-learning/benchmark-dataset/nur
 adult_train_path = "/home/haianh/grad_project/ml-learning/benchmark-dataset/adult-discretized-pyarc-train.data"
 adult_test_path = "/home/haianh/grad_project/ml-learning/benchmark-dataset/adult-discretized-pyarc-test.data"
 
-validate(adult_train_path, adult_test_path, 0.01, 0.5)
+pen_train = "/home/haianh/grad_project/ml-learning/data/pen.tra"
+pen_test = "/home/haianh/grad_project/ml-learning/data/pen.test"
+
+letter_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/letter-pyarc-train.data"
+letter_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/letter-pyarc-test.data"
+
+krkopt_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/krkopt-train.data"
+krkopt_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/krkopt-test.data"
+
+connect4_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/connect4-train.data"
+connect4_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/connect4-test.data"
+
+
+android = "/home/haianh/grad_project/ml-learning/data/data.csv"
+
+student = "/home/haianh/grad_project/ml-learning/data/student_data.csv"
+
+coupon_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/coupon-pyarc.train"
+coupon_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/coupon-pyarc.test"
+
+mushroom_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/mushroom-pyarc.train"
+mushroom_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/mushroom-pyarc.test"
+
+validate(mushroom_train, mushroom_test, 0.05, 0.5)
+

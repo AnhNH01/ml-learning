@@ -9,7 +9,7 @@ from manager import DatasetManager
 def validate_with_dataset(
     train_data_path, test_data_path, data_scheme_path, minsup=0.01, minconf=0.5
 ):
-    print(f"         CBA-implement at {minsup} support and {minconf} confidence ")
+    print(f"         GAAC at {minsup} support and {minconf} confidence ")
     print(
         "----------------------------------------------------------------------------"
     )
@@ -25,7 +25,7 @@ def validate_with_dataset(
     cars = ga_genrules(
         manager,
         max_iter=50,
-        pop_size=100,
+        pop_size=300,
         mutation_rate=0.5,
         min_support=minsup,
         min_confidence=minconf,
@@ -44,13 +44,15 @@ def validate_with_dataset(
     # Get accuracy score
     accuracy = classifier_m1.accuracy(data_test)
 
-    # print("Cars:", len(cars.rules))
+    print("Cars:", len(cars))
     print(f"Default class: {classifier_m1.default_class}")
     print(f"Number of rules: {len(classifier_m1.rules)}")
-    print(classifier_m1.rules[-1])
-    print(f"CBA-RG runtime is {ga_rg_runtime}")
-    print(f"CBA-CB runtime is {cb_runtime}")
+    
+    print(f"GA-RG runtime is {ga_rg_runtime}")
+    print(f"CB runtime is {cb_runtime}")
     print(f"Accuracy is {accuracy}")
+    print(f"Rule data-train coverage: {manager.get_dataset_coverage(classifier_m1.rules)}")
+    # classifier_m1.print()
     print("--------------------------------------------------------------------------")
 
 
@@ -73,4 +75,39 @@ if __name__ == "__main__":
     iris_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/iris-test.data"
     iris_name = "/home/haianh/grad_project/ml-learning/benchmark-dataset/iris.names"
 
-    validate_with_dataset(nursery_train, nursery_test, nursery_name, 0.05, 0.5)
+    pen_train = "/home/haianh/grad_project/ml-learning/data/pen.tra"
+    pen_test = "/home/haianh/grad_project/ml-learning/data/pen.test"
+    pen_name = "/home/haianh/grad_project/ml-learning/data/pen.names"
+
+    letter_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/letter-train.data"
+    letter_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/letter-test.data"
+    letter_name =  "/home/haianh/grad_project/ml-learning/benchmark-dataset/letter.names"
+
+    bank_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/bank-train.data"
+    bank_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/bank-test.data"
+    bank_name = "/home/haianh/grad_project/ml-learning/benchmark-dataset/bank.names"
+
+    krkopt_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/krkopt-train.data"
+    krkopt_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/krkopt-test.data"
+    krkopt_name = "/home/haianh/grad_project/ml-learning/benchmark-dataset/krkopt.names"
+
+    connect4_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/connect4-train.data"
+    connect4_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/connect4-test.data"
+    connect4_name = "/home/haianh/grad_project/ml-learning/benchmark-dataset/connect4.names"
+
+    coupon_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/coupon-train.data"
+    coupon_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/coupon-test.data"
+    coupon_name = "/home/haianh/grad_project/ml-learning/benchmark-dataset/coupon.names"
+
+    mushroom_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/mushroom-train.data"
+    mushroom_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/mushroom-test.data"
+    mushroom_name = "/home/haianh/grad_project/ml-learning/benchmark-dataset/mushroom.names"
+
+    supports = [0.1, 0.05, 0.03, 0.01, 0.005, 0.003]
+    for sup in supports:
+        for _ in range(0, 3):
+            validate_with_dataset(adult_train, adult_test, adult_name, sup, 0.5)
+            print()
+        print()
+        print()
+    # validate_with_dataset(adult_train, adult_test, adult_name, 0.05, 0.5)

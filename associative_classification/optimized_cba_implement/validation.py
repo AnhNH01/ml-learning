@@ -34,10 +34,12 @@ def validate_with_dataset(train_data_path, test_data_path, data_scheme_path, min
     print("Cars:", len(cars.rules))
     print(f"Default class: {classifier_m1.default_class}")
     print(f"Number of rules: {len(classifier_m1.rules)}")
-    print(classifier_m1.rules[-1])
+    
     print(f"CBA-RG runtime is {cba_rg_runtime}")
     print(f"CBA-CB runtime is {cba_cb_runtime}")
     print(f'Accuracy is {accuracy}')
+
+    # classifier_m1.print()
     print("--------------------------------------------------------------------------")
 
 
@@ -51,4 +53,29 @@ if __name__ == "__main__":
     adult_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/adult-discretized-train.data"
     adult_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/adult-discretized-test.data"
     adult_name = "/home/haianh/grad_project/ml-learning/benchmark-dataset/adult.names"
-    validate_with_dataset(adult_train,adult_test, adult_name, 0.03, 0.5)
+
+    iris_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/iris-train.data"
+    iris_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/iris-test.data"
+    iris_name = "/home/haianh/grad_project/ml-learning/benchmark-dataset/iris.names"
+
+    letter_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/letter-train.data"
+    letter_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/letter-test.data"
+    letter_name = "/home/haianh/grad_project/ml-learning/benchmark-dataset/letter.names"
+
+    letterd_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/letter-discretized-train.data"
+    letterd_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/letter-discretized-test.data"
+
+    bank_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/bank-train.data"
+    bank_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/bank-test.data"
+    bank_name = "/home/haianh/grad_project/ml-learning/benchmark-dataset/bank.names"
+
+    krkopt_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/krkopt-train.data"
+    krkopt_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/krkopt-test.data"
+    krkopt_name = "/home/haianh/grad_project/ml-learning/benchmark-dataset/krkopt.names"
+
+    mushroom_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/mushroom-train.data"
+    mushroom_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/mushroom-test.data"
+    mushroom_name = "/home/haianh/grad_project/ml-learning/benchmark-dataset/mushroom.names"
+
+
+    validate_with_dataset(adult_train, adult_test, adult_name, 0.1, 0.5)

@@ -1,0 +1,246 @@
+         GAAC at 0.1 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: >50K
+Class: <=50K
+Cars: 967
+Default class: >50K
+Number of rules: 104
+GA-RG runtime is 60.77491508700001
+CB runtime is 18.513331033000014
+Accuracy is 81.5514669318747
+Rule data-train coverage: 0.8338444960212201
+--------------------------------------------------------------------------
+
+         GAAC at 0.1 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: >50K
+Class: <=50K
+Cars: 897
+Default class: >50K
+Number of rules: 100
+GA-RG runtime is 62.144991988999976
+CB runtime is 19.34538609399999
+Accuracy is 81.51831592905685
+Rule data-train coverage: 0.833554376657825
+--------------------------------------------------------------------------
+
+         GAAC at 0.1 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: >50K
+Class: <=50K
+Cars: 905
+Default class: >50K
+Number of rules: 104
+GA-RG runtime is 59.94784982699997
+CB runtime is 20.65540902700002
+Accuracy is 81.51831592905685
+Rule data-train coverage: 0.8335958222811671
+--------------------------------------------------------------------------
+
+
+
+         GAAC at 0.05 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: >50K
+Class: <=50K
+Cars: 1786
+Default class: >50K
+Number of rules: 179
+GA-RG runtime is 57.15619269899997
+CB runtime is 31.31684239699996
+Accuracy is 81.80009945300846
+Rule data-train coverage: 0.8026773872679045
+--------------------------------------------------------------------------
+
+         GAAC at 0.05 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: >50K
+Class: <=50K
+Cars: 1788
+Default class: >50K
+Number of rules: 172
+GA-RG runtime is 60.70857622400007
+CB runtime is 31.173493774999997
+Accuracy is 81.6509199403282
+Rule data-train coverage: 0.8068219496021221
+--------------------------------------------------------------------------
+
+         GAAC at 0.05 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: >50K
+Class: <=50K
+Cars: 1868
+Default class: >50K
+Number of rules: 195
+GA-RG runtime is 57.50074852199998
+CB runtime is 33.60003688799998
+Accuracy is 81.51831592905685
+Rule data-train coverage: 0.8065318302387268
+--------------------------------------------------------------------------
+
+
+
+         GAAC at 0.03 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: >50K
+Class: <=50K
+Cars: 2622
+Default class: >50K
+Number of rules: 271
+GA-RG runtime is 57.350685784999996
+CB runtime is 40.48676506000004
+Accuracy is 83.0598375600862
+Rule data-train coverage: 0.8570954907161804
+--------------------------------------------------------------------------
+
+         GAAC at 0.03 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: >50K
+Class: <=50K
+Cars: 2567
+Default class: >50K
+Number of rules: 275
+GA-RG runtime is 62.204292527999996
+CB runtime is 42.37951201499993
+Accuracy is 83.14271506713078
+Rule data-train coverage: 0.8334714854111406
+--------------------------------------------------------------------------
+
+         GAAC at 0.03 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: >50K
+Class: <=50K
+Cars: 2529
+Default class: >50K
+Number of rules: 284
+GA-RG runtime is 58.41442337299998
+CB runtime is 40.132831667000005
+Accuracy is 83.24216807558429
+Rule data-train coverage: 0.859375
+--------------------------------------------------------------------------
+
+
+
+         GAAC at 0.01 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: >50K
+Class: <=50K
+Cars: 4225
+Default class: >50K
+Number of rules: 389
+GA-RG runtime is 59.702562985999975
+CB runtime is 58.82990359700011
+Accuracy is 83.85546162771425
+Rule data-train coverage: 0.8427138594164456
+--------------------------------------------------------------------------
+
+         GAAC at 0.01 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: >50K
+Class: <=50K
+Cars: 4202
+Default class: >50K
+Number of rules: 425
+GA-RG runtime is 56.66679344399995
+CB runtime is 62.08768602300006
+Accuracy is 83.95491463616774
+Rule data-train coverage: 0.8418020557029178
+--------------------------------------------------------------------------
+
+         GAAC at 0.01 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: >50K
+Class: <=50K
+Cars: 4232
+Default class: >50K
+Number of rules: 448
+GA-RG runtime is 58.651777092999964
+CB runtime is 60.21770381500005
+Accuracy is 83.77258412066965
+Rule data-train coverage: 0.868368700265252
+--------------------------------------------------------------------------
+
+
+
+         GAAC at 0.005 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: >50K
+Class: <=50K
+Cars: 4956
+Default class: >50K
+Number of rules: 493
+GA-RG runtime is 55.979908068999976
+CB runtime is 65.46358003
+Accuracy is 84.41902867561744
+Rule data-train coverage: 0.8948110079575596
+--------------------------------------------------------------------------
+
+         GAAC at 0.005 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: >50K
+Class: <=50K
+Cars: 4951
+Default class: >50K
+Number of rules: 468
+GA-RG runtime is 61.049057877999985
+CB runtime is 65.9893813220001
+Accuracy is 84.33615116857285
+Rule data-train coverage: 0.8826674403183024
+--------------------------------------------------------------------------
+
+         GAAC at 0.005 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: >50K
+Class: <=50K
+Cars: 5119
+Default class: >50K
+Number of rules: 478
+GA-RG runtime is 61.93531657699987
+CB runtime is 67.72716192100006
+Accuracy is 84.4687551798442
+Rule data-train coverage: 0.8841594827586207
+--------------------------------------------------------------------------
+
+
+
+         GAAC at 0.003 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: >50K
+Class: <=50K
+Cars: 5574
+Default class: >50K
+Number of rules: 521
+GA-RG runtime is 59.94378815599998
+CB runtime is 75.66728303400009
+Accuracy is 84.4687551798442
+Rule data-train coverage: 0.8994529177718833
+--------------------------------------------------------------------------
+
+         GAAC at 0.003 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: >50K
+Class: <=50K
+Cars: 5831
+Default class: >50K
+Number of rules: 545
+GA-RG runtime is 61.07605018100003
+CB runtime is 77.72252074899984
+Accuracy is 84.53505718547987
+Rule data-train coverage: 0.8961372679045093
+--------------------------------------------------------------------------
+
+         GAAC at 0.003 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: >50K
+Class: <=50K
+Cars: 5582
+Default class: >50K
+Number of rules: 509
+GA-RG runtime is 59.583735597999976
+CB runtime is 73.66435088700018
+Accuracy is 84.4853306812531
+Rule data-train coverage: 0.9030172413793104
+--------------------------------------------------------------------------
+
+
+

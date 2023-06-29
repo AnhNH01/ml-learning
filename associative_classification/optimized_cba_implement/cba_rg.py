@@ -180,6 +180,7 @@ if __name__ == "__main__":
         data, attr, value_type = read(datapath, namepath)
         # result_data = pre_process(data, attr, value_type)
         manager = DatasetManager(data)
+        print("Items:", len(manager.items))
         s = perf_counter()
         cars = rule_generator(manager, minsup, minconf, len(data[0]) - 1)
         e = perf_counter()
@@ -191,10 +192,10 @@ if __name__ == "__main__":
         print(f"Number of rules: {len(cars.rules)}")
        
 
-    manager = DatasetManager(dataset)
-    start = perf_counter()
-    cars = rule_generator(manager, minsup, minconf, 2)
-    end = perf_counter()
+    # manager = DatasetManager(dataset)
+    # start = perf_counter()
+    # cars = rule_generator(manager, minsup, minconf, 2)
+    # end = perf_counter()
    
     
     # print(f"Done in {end-start} secs")
@@ -205,6 +206,13 @@ if __name__ == "__main__":
     # namepath = "/home/haianh/grad_project/ml-learning/data/adult.names"
     # runtest(datapath, namepath, 0.1, 0.5)
 
-    dress_data = "/home/haianh/grad_project/CBA/datasets/dresses.data"
-    dresses_name = "/home/haianh/grad_project/CBA/datasets/dresses.names"
-    runtest(dress_data, dresses_name, 0.03, 0.5)
+    # dress_data = "/home/haianh/grad_project/CBA/datasets/dresses.data"
+    # dresses_name = "/home/haianh/grad_project/CBA/datasets/dresses.names"
+    # runtest(dress_data, dresses_name, 0.03, 0.5)
+
+    adult_data = "/home/haianh/grad_project/ml-learning/data/adult.data"
+    adult_name = "/home/haianh/grad_project/ml-learning/data/adult.names"
+
+    nursery_name = "/home/haianh/grad_project/ml-learning/benchmark-dataset/nursery.names"
+    nursery_data = "/home/haianh/grad_project/ml-learning/benchmark-dataset/nursery-train.data"
+    runtest(nursery_data, nursery_name, 0.01, 0.5)

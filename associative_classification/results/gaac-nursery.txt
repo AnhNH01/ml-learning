@@ -1,0 +1,492 @@
+         GAAC at 0.05 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 90
+Default class: spec_prior
+Number of rules: 11
+GA-RG runtime is 8.142264917998546
+CB runtime is 1.534383471000183
+Accuracy is 87.9243827160494
+Rule data-train coverage: 0.8442322530864198
+--------------------------------------------------------------------------
+
+         GAAC at 0.05 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 90
+Default class: spec_prior
+Number of rules: 11
+GA-RG runtime is 9.378611297001044
+CB runtime is 0.8922324640006991
+Accuracy is 87.9243827160494
+Rule data-train coverage: 0.8442322530864198
+--------------------------------------------------------------------------
+
+         GAAC at 0.05 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 90
+Default class: spec_prior
+Number of rules: 11
+GA-RG runtime is 8.771893618999457
+CB runtime is 1.0881099429971073
+Accuracy is 87.9243827160494
+Rule data-train coverage: 0.8442322530864198
+--------------------------------------------------------------------------
+
+         GAAC at 0.05 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 90
+Default class: spec_prior
+Number of rules: 11
+GA-RG runtime is 9.578388717000053
+CB runtime is 1.5464407290019153
+Accuracy is 87.9243827160494
+Rule data-train coverage: 0.8442322530864198
+--------------------------------------------------------------------------
+
+         GAAC at 0.05 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 90
+Default class: spec_prior
+Number of rules: 11
+GA-RG runtime is 8.821722718003002
+CB runtime is 1.710515631002636
+Accuracy is 87.9243827160494
+Rule data-train coverage: 0.8442322530864198
+--------------------------------------------------------------------------
+
+
+
+         GAAC at 0.03 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 238
+Default class: spec_prior
+Number of rules: 23
+GA-RG runtime is 9.154322678998142
+CB runtime is 1.7313590939993446
+Accuracy is 90.12345679012346
+Rule data-train coverage: 0.9236111111111112
+--------------------------------------------------------------------------
+
+         GAAC at 0.03 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 238
+Default class: spec_prior
+Number of rules: 23
+GA-RG runtime is 8.973180681001395
+CB runtime is 1.5502451040010783
+Accuracy is 90.12345679012346
+Rule data-train coverage: 0.9236111111111112
+--------------------------------------------------------------------------
+
+         GAAC at 0.03 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 237
+Default class: spec_prior
+Number of rules: 23
+GA-RG runtime is 9.16421653299767
+CB runtime is 2.812323602000106
+Accuracy is 90.12345679012346
+Rule data-train coverage: 0.9236111111111112
+--------------------------------------------------------------------------
+
+         GAAC at 0.03 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 238
+Default class: spec_prior
+Number of rules: 23
+GA-RG runtime is 9.227455618998647
+CB runtime is 1.742183151000063
+Accuracy is 90.12345679012346
+Rule data-train coverage: 0.9236111111111112
+--------------------------------------------------------------------------
+
+         GAAC at 0.03 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 238
+Default class: spec_prior
+Number of rules: 23
+GA-RG runtime is 9.013803767000354
+CB runtime is 1.8743896710002446
+Accuracy is 90.12345679012346
+Rule data-train coverage: 0.9236111111111112
+--------------------------------------------------------------------------
+
+
+
+         GAAC at 0.01 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 1401
+Default class: priority
+Number of rules: 122
+GA-RG runtime is 9.394949384000938
+CB runtime is 6.840098134998698
+Accuracy is 93.3256172839506
+Rule data-train coverage: 0.9981674382716049
+--------------------------------------------------------------------------
+
+         GAAC at 0.01 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 1388
+Default class: priority
+Number of rules: 104
+GA-RG runtime is 8.593760512001609
+CB runtime is 6.158528476000356
+Accuracy is 93.01697530864197
+Rule data-train coverage: 0.9856288580246914
+--------------------------------------------------------------------------
+
+         GAAC at 0.01 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 1382
+Default class: priority
+Number of rules: 102
+GA-RG runtime is 8.387425216998963
+CB runtime is 6.341499196001678
+Accuracy is 93.1712962962963
+Rule data-train coverage: 0.9898726851851852
+--------------------------------------------------------------------------
+
+         GAAC at 0.01 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 1377
+Default class: priority
+Number of rules: 106
+GA-RG runtime is 8.495616899002925
+CB runtime is 5.249683121997805
+Accuracy is 93.47993827160494
+Rule data-train coverage: 0.9880401234567902
+--------------------------------------------------------------------------
+
+         GAAC at 0.01 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 1390
+Default class: priority
+Number of rules: 99
+GA-RG runtime is 8.346483413999522
+CB runtime is 5.448755831002927
+Accuracy is 93.09413580246914
+Rule data-train coverage: 0.9861111111111112
+--------------------------------------------------------------------------
+
+
+
+         GAAC at 0.005 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 1964
+Default class: priority
+Number of rules: 150
+GA-RG runtime is 8.577958388999832
+CB runtime is 8.215921701001207
+Accuracy is 92.43827160493827
+Rule data-train coverage: 0.9918016975308642
+--------------------------------------------------------------------------
+
+         GAAC at 0.005 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 1947
+Default class: priority
+Number of rules: 183
+GA-RG runtime is 8.928285449001123
+CB runtime is 8.2336649839999153
+Accuracy is 93.40277777777779
+Rule data-train coverage: 0.9915123456790124
+--------------------------------------------------------------------------
+
+         GAAC at 0.005 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 1945
+Default class: priority
+Number of rules: 173
+GA-RG runtime is 8.64121780700225
+CB runtime is 8.29560558600133
+Accuracy is 93.28703703703704
+Rule data-train coverage: 0.9854359567901234
+--------------------------------------------------------------------------
+
+         GAAC at 0.005 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 1983
+Default class: priority
+Number of rules: 164
+GA-RG runtime is 8.587767848999647
+CB runtime is 8.124136243000976
+Accuracy is 93.3256172839506
+Rule data-train coverage: 0.9929591049382716
+--------------------------------------------------------------------------
+
+         GAAC at 0.005 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 1961
+Default class: priority
+Number of rules: 157
+GA-RG runtime is 8.64955313000246
+CB runtime is 8.529179532000853
+Accuracy is 93.13271604938271
+Rule data-train coverage: 0.9881365740740741
+--------------------------------------------------------------------------
+
+
+
+         GAAC at 0.003 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 2095
+Default class: priority
+Number of rules: 152
+GA-RG runtime is 9.051215956002125
+CB runtime is 8.535208338002121
+Accuracy is 92.47685185185185
+Rule data-train coverage: 0.9840856481481481
+--------------------------------------------------------------------------
+
+         GAAC at 0.003 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 2081
+Default class: priority
+Number of rules: 148
+GA-RG runtime is 9.2424289590017
+CB runtime is 8.032622368999
+Accuracy is 93.09413580246914
+Rule data-train coverage: 0.9859182098765432
+--------------------------------------------------------------------------
+
+         GAAC at 0.003 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 2043
+Default class: priority
+Number of rules: 140
+GA-RG runtime is 8.466836556999624
+CB runtime is 7.874306267000065
+Accuracy is 91.93672839506173
+Rule data-train coverage: 0.9916087962962963
+--------------------------------------------------------------------------
+
+         GAAC at 0.003 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 2025
+Default class: priority
+Number of rules: 155
+GA-RG runtime is 8.63107450499956
+CB runtime is 8.275332905999676
+Accuracy is 93.51851851851852
+Rule data-train coverage: 0.9925733024691358
+--------------------------------------------------------------------------
+
+         GAAC at 0.003 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 2042
+Default class: priority
+Number of rules: 161
+GA-RG runtime is 8.557223600000725
+CB runtime is 8.270226996002748
+Accuracy is 93.71141975308642
+Rule data-train coverage: 0.9892939814814815
+--------------------------------------------------------------------------
+
+
+
+         GAAC at 0.001 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 2162
+Default class: priority
+Number of rules: 185
+GA-RG runtime is 8.623430553001526
+CB runtime is 8.604985832997045
+Accuracy is 94.09722222222221
+Rule data-train coverage: 0.9914158950617284
+--------------------------------------------------------------------------
+
+         GAAC at 0.001 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 2195
+Default class: priority
+Number of rules: 193
+GA-RG runtime is 8.688603507001972
+CB runtime is 8.857504118001089
+Accuracy is 94.48302469135803
+Rule data-train coverage: 0.9959490740740741
+--------------------------------------------------------------------------
+
+         GAAC at 0.001 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 2147
+Default class: priority
+Number of rules: 184
+GA-RG runtime is 8.61824363100095
+CB runtime is 8.595591367000452
+Accuracy is 93.47993827160494
+Rule data-train coverage: 0.9913194444444444
+--------------------------------------------------------------------------
+
+         GAAC at 0.001 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 2141
+Default class: priority
+Number of rules: 178
+GA-RG runtime is 8.612810226000875
+CB runtime is 8.821662392998405
+Accuracy is 94.09722222222221
+Rule data-train coverage: 0.9917052469135802
+--------------------------------------------------------------------------
+
+         GAAC at 0.001 support and 0.5 confidence 
+----------------------------------------------------------------------------
+Class: spec_prior
+Class: not_recom
+Class: priority
+Class: very_recom
+Class: recommend
+Cars: 2169
+Default class: priority
+Number of rules: 207
+GA-RG runtime is 8.674725970002328
+CB runtime is 8.699262947000534
+Accuracy is 93.82716049382715
+Rule data-train coverage: 0.9965277777777778
+--------------------------------------------------------------------------
+
+
+

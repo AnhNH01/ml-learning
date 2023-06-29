@@ -2,6 +2,14 @@ from typing import Hashable
 from ruleitem import RuleItem
 from manager import DatasetManager
 from random import choice, randint, uniform, choices
+import logging
+
+
+logger = logging.getLogger('ga-rg')
+logger.setLevel(logging.DEBUG)
+fh = logging.FileHandler("/home/haianh/grad_project/ml-learning/associative_classification/GA_AC/ga_rg.log")
+fh.setLevel(logging.DEBUG)
+logger.addHandler(fh)
 
 
 class CARs:
@@ -52,7 +60,15 @@ def crossover(parent_one: RuleItem, parent_two: RuleItem, manager: DatasetManage
     return child_one, child_two
 
 
-def init_population(manager: DatasetManager, min_support: float, class_label: Hashable):
+def init_population(manager: DatasetManager, min_support: float, class_label: Hashable, pop_size: int):
+    """
+    Generate initial population for Genetic algorithm
+
+    @params
+        manager: Dataset manager, used for creating RuleItems
+        pop_size: Size of initial population
+    """
+    
     def to_cond_set(attr, val):
         # placeholder for cond_set
         cond_set = [None] * (manager.datacase_length - 1)
@@ -66,8 +82,8 @@ def init_population(manager: DatasetManager, min_support: float, class_label: Ha
             rule = RuleItem(to_cond_set(attr, value), class_label, manager)
             rules.append(rule)
 
-    # population = [r for r in rules if r.support >= min_support]
-    population = sorted(rules)
+    population = [r for r in rules if r.support >= min_support]
+    population = choices(rules, k=pop_size)
     return population
 
 
@@ -83,7 +99,8 @@ def genetic_algorithm(
     def fit(rule):
         return rule.fitness
 
-    population = choices(initial_population, k=pop_size)
+    logger.debug(f"inital poplen = {len(initial_population)}")
+    population = initial_population
 
     auxilary_population = set()
 
@@ -91,51 +108,82 @@ def genetic_algorithm(
         if len(population) == 0:
             return population
 
-        population = sorted(population, key=fit, reverse=True)
-        mating_candidates = set(population).union(auxilary_population)
-        # roulette_wheel, thresh = create_roulette_wheel(population)
+        # mating_candidates = list(set(population).union(auxilary_population))[:pop_size]
+        mating_candidates = population
+        roulette_wheel, thresh = create_roulette_wheel(mating_candidates)
 
-        new_pop = set()
-        # offsprings = []
-
+        new_pop = set(sorted(mating_candidates, key=fit, reverse=True)[:pop_size//10])
+        
+        
+        timeout = 0 # thresh hold for iter without new valid child (new_pop length doesn't increase)
         while len(new_pop) < pop_size:
             if len(population) == 0:
                 break
+            
+            if timeout > 500:
+                break
 
-            parent1 = tournament_selection(
-                list(mating_candidates), len(mating_candidates) // 5
-            )
-            parent2 = tournament_selection(
-                list(mating_candidates), len(mating_candidates) // 5
-            )
+            prev_length = len(new_pop)
+            
+            parent1 = roulette_selection(list(mating_candidates), roulette_wheel, thresh)
+            parent2 = roulette_selection(list(mating_candidates), roulette_wheel, thresh)
 
             while parent1 == parent2:
-                parent2 = tournament_selection(population, len(population) // 5)
+                parent2 = roulette_selection(list(mating_candidates), roulette_wheel, thresh)
 
-            child1, child2 = crossover(parent1, parent2, manager)
+            tries = 0
+            skip = True
+
+            if uniform(0, 1) > 0.8:
+                child1 = parent1
+                child2 = parent2
+            else:
+                child1, child2 = crossover(parent1, parent2, manager)
+                while tries < 4 and skip:
+                    if child1.cond_set_length == 0 or child2.cond_set_length == 0:
+                        child1, child2 = crossover(parent1, parent2, manager)
+                    else:
+                        skip = False
+                        
+                    tries += 1
+
+            if skip:
+                timeout += 1
+                continue
+
             if uniform(0, 1) <= mutation_rate:
                 child1 = mutation(child1, manager)
 
             if uniform(0, 1) <= mutation_rate:
                 child2 = mutation(child2, manager)
-
+                
+                
             new_pop.add(child1)
+            
             new_pop.add(child2)
 
-        if len(new_pop) == 0:
-            return population
+            if len(new_pop) == prev_length:
+                timeout += 1
 
+            if len(new_pop) == 0:
+                break
+        
+        population = set(population).union(new_pop)
+        # population = new_pop
         auxilary_population = auxilary_population.union(
-            {rule for rule in new_pop if rule.support >= min_support }
+            {rule for rule in population if rule.support >= min_support and rule.confidence >= min_confidence }
         )
+        
+        # class_coverage = manager.get_dataset_coverage(auxilary_population, initial_population[0].class_label)
+        # logger.info(f"Auxi coverage = {class_coverage}")
+        # if class_coverage >= 0.95:
+        #     break
 
-        print("Gen-fit", sum(x.fitness for x in population) / len(population))
-        population = list(new_pop)
+        # logger.debug(f'Mean fitness: {sum(x.fitness for x in population) / len(population)} at gen {_}')
 
-    # population = sorted(population, key=fit, reverse=True)
-    population = sorted(auxilary_population, key=fit, reverse=True)
-    return population
+        population = sorted(population, key=fit, reverse=True)[:pop_size]
 
+    return auxilary_population
 
 def tournament_selection(population: list, tournament_size: int):
     if tournament_size < 2:
@@ -184,7 +232,7 @@ def ga_genrules(
     rule_list = []
     for label in manager.class_labels:
         print("Class:", label)
-        initial_population = init_population(manager, min_support, label)
+        initial_population = init_population(manager, min_support, label, pop_size)
         rules = genetic_algorithm(
             initial_population,
             max_iter,
@@ -218,16 +266,16 @@ if __name__ == "__main__":
 
     rules = ga_genrules(
         manager,
-        max_iter=70,
-        pop_size=20,
+        max_iter=50,
+        pop_size=50,
         mutation_rate=0.5,
         min_support=0.05,
         min_confidence=0.5,
     )
 
     rbc = sorted(rules, reverse=True)
-    # cars = [rule for rule in rbc if rule.support >= 0.05 and rule.confidence >= 0.5]
-    cars = rbc
+    cars = [rule for rule in rbc if rule.support >= 0.05 and rule.confidence >= 0.5]
+    # cars = rbc
     print("Rule number:", len(cars))
     print("Conf = 1:", sum(rule.confidence == 1 for rule in cars))
     for rule in cars:
