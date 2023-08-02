@@ -134,7 +134,7 @@ def genetic_algorithm(
             tries = 0
             skip = True
 
-            if uniform(0, 1) > 0.8:
+            if uniform(0, 1) > 0.9:
                 child1 = parent1
                 child2 = parent2
             else:

@@ -1,0 +1,2 @@
+age,job,marital,education,default,balance,housing,loan,contact,day,month,duration,campaign,pdays,previous,poutcome,class
+numerical,categorical,categorical,categorical,categorical,numerical,categorical,categorical,categorical,numerical,categorical,numerical,numerical,numerical,numerical,categorical,label

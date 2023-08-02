@@ -73,9 +73,14 @@ if __name__ == "__main__":
     krkopt_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/krkopt-test.data"
     krkopt_name = "/home/haianh/grad_project/ml-learning/benchmark-dataset/krkopt.names"
 
-    mushroom_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/mushroom-train.data"
-    mushroom_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/mushroom-test.data"
+    mushroom_train = "/home/haianh/grad_project/ml-learning/benchmark-dataset/mushroom_processed_train.data"
+    mushroom_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/mushroom_processed_test.data"
     mushroom_name = "/home/haianh/grad_project/ml-learning/benchmark-dataset/mushroom.names"
 
+    adult_full_train = '/home/haianh/grad_project/ml-learning/benchmark-dataset/adult-real-train.data'
+    adult_full_test = '/home/haianh/grad_project/ml-learning/benchmark-dataset/adult-real-test.data'
 
-    validate_with_dataset(adult_train, adult_test, adult_name, 0.1, 0.5)
+    # supp = [0.05, 0.03, 0.005, 0.003]
+    # for sup in supp:
+    #     validate_with_dataset(bank_train, bank_test, bank_name, sup, 0.5)
+    validate_with_dataset(bank_train, bank_test, bank_name, 0.2, 0.5)

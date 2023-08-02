@@ -25,8 +25,8 @@ def validate_with_dataset(
     cars = ga_genrules(
         manager,
         max_iter=50,
-        pop_size=300,
-        mutation_rate=0.5,
+        pop_size=150,
+        mutation_rate=0.1,
         min_support=minsup,
         min_confidence=minconf,
     )
@@ -103,11 +103,14 @@ if __name__ == "__main__":
     mushroom_test = "/home/haianh/grad_project/ml-learning/benchmark-dataset/mushroom-test.data"
     mushroom_name = "/home/haianh/grad_project/ml-learning/benchmark-dataset/mushroom.names"
 
-    supports = [0.1, 0.05, 0.03, 0.01, 0.005, 0.003]
-    for sup in supports:
-        for _ in range(0, 3):
-            validate_with_dataset(adult_train, adult_test, adult_name, sup, 0.5)
-            print()
-        print()
-        print()
-    # validate_with_dataset(adult_train, adult_test, adult_name, 0.05, 0.5)
+    adult_full_train = '/home/haianh/grad_project/ml-learning/benchmark-dataset/adult-real-train.data'
+    adult_full_test = '/home/haianh/grad_project/ml-learning/benchmark-dataset/adult-real-test.data'
+
+    # supports = [0.05, 0.03, 0.01, 0.005, 0.003]
+    # for sup in supports:
+    #     for _ in range(0, 5):
+    #         validate_with_dataset(bank_train, bank_test, bank_name, sup, 0.5)
+    #         print()
+    #     print()
+    #     print()
+    validate_with_dataset(bank_train, bank_test, bank_name, 0.2, 0.5)

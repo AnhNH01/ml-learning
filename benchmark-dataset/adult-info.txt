@@ -1,0 +1,14 @@
+age: [21.0, 24.0, 25.0, 28.0, 30.0, 36.0, 42.0, 55.0, 62.0]
+workclass: {'Federal-gov': 1, 'Self-emp-not-inc': 2, 'Local-gov': 3, 'State-gov': 4, 'Without-pay': 5, 'Self-emp-inc': 6, 'Private': 7}
+fnlwgt: [505794.6666666667, 998097.3333333334]
+education: {'7th-8th': 1, '1st-4th': 2, '10th': 3, '9th': 4, 'HS-grad': 5, 'Masters': 6, 'Assoc-acdm': 7, '12th': 8, 'Assoc-voc': 9, 'Some-college': 10, 'Bachelors': 11, 'Prof-school': 12, '5th-6th': 13, 'Doctorate': 14, '11th': 15, 'Preschool': 16}
+education-num: [9.0, 10.0, 11.0, 13.0, 14.0, 15.0]
+marital-status: {'Divorced': 1, 'Married-spouse-absent': 2, 'Widowed': 3, 'Married-civ-spouse': 4, 'Married-AF-spouse': 5, 'Separated': 6, 'Never-married': 7}
+occupation: {'Transport-moving': 1, 'Handlers-cleaners': 2, 'Other-service': 3, 'Tech-support': 4, 'Sales': 5, 'Priv-house-serv': 6, 'Prof-specialty': 7, 'Protective-serv': 8, 'Craft-repair': 9, 'Armed-Forces': 10, 'Adm-clerical': 11, 'Machine-op-inspct': 12, 'Farming-fishing': 13, 'Exec-managerial': 14}
+relationship: {'Own-child': 1, 'Other-relative': 2, 'Unmarried': 3, 'Wife': 4, 'Not-in-family': 5, 'Husband': 6}
+race: {'Other': 1, 'Asian-Pac-Islander': 2, 'Black': 3, 'White': 4, 'Amer-Indian-Eskimo': 5}
+sex: {'Female': 1, 'Male': 2}
+capital-gain: [114.0, 3103.0, 3137.0, 4386.0, 4416.0, 4687.0, 4865.0, 4934.0, 5013.0, 5178.0, 5455.0, 5556.0, 5721.0, 6418.0, 6497.0, 6514.0, 6723.0, 7262.0]
+capital-lost: [1564.0, 1573.0, 1825.0, 1870.0, 1887.0, 1902.0, 1944.0, 1977.0, 1980.0, 2174.0, 2179.0, 2231.0, 2258.0, 2392.0, 2457.0, 2472.0, 3175.0]
+hours-per-week: [35.0, 40.0, 42.0, 50.0, 62.0]
+native-country: {'England': 1, 'Nicaragua': 2, 'Taiwan': 3, 'Iran': 4, 'Honduras': 5, 'Thailand': 6, 'El-Salvador': 7, 'Peru': 8, 'Trinadad&Tobago': 9, 'Puerto-Rico': 10, 'Italy': 11, 'Cambodia': 12, 'Hong': 13, 'Laos': 14, 'Philippines': 15, 'Poland': 16, 'Guatemala': 17, 'India': 18, 'Japan': 19, 'Haiti': 20, 'Ecuador': 21, 'United-States': 22, 'China': 23, 'France': 24, 'Dominican-Republic': 25, 'Germany': 26, 'Hungary': 27, 'Outlying-US(Guam-USVI-etc)': 28, 'Vietnam': 29, 'Portugal': 30, 'Columbia': 31, 'Cuba': 32, 'South': 33, 'Ireland': 34, 'Mexico': 35, 'Holand-Netherlands': 36, 'Scotland': 37, 'Jamaica': 38, 'Canada': 39, 'Greece': 40, 'Yugoslavia': 41}
